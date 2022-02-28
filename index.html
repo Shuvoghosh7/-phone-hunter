@@ -11,7 +11,27 @@
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
+ <section>
+    <div class="row">
+        <div class="col-12 col-md-12">
+        <h1 class="text-success text-center mb-5">Find your Faverit Phone</h1>
+     <!-- scarch bar start -->
+    <div class="input-group w-25 mx-auto">
+            <input id="search-box" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <button onclick="getPhones()" type="button" class="btn btn-outline-primary">search</button>
+    </div>
+   <!-- scarch bar end -->
+   <!-- error Massage -->
+   <h1 id="error">No Result Found Plase search by product Name</h1>
+   <!-- card  -->
+   <div id="phone-container" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
     
+  </div>
+
+
+</div>
+</div>
+</section>
 
     <script src="./JS/app.js"></script>
 </body>
