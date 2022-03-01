@@ -6,3 +6,9 @@
     
     
 }
+#error2{
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+    color:darkslategrey;
+}
