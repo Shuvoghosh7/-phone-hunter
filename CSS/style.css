@@ -1,12 +1,12 @@
-#error{
+#errorFor-empty{
     display: none;
     text-align: center;
     margin-top: 10px;
-    color: tomato;
+    color:tomato;
     
     
 }
-#error2{
+#errorFor-string{
     display: none;
     text-align: center;
     margin-top: 10px;
