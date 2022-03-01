@@ -1,6 +1,8 @@
 const getPhones = () =>{
     const searchValue = document.getElementById("search-box")
     const searchText =  searchValue.value
+    //get spanner by ID
+    document.getElementById('spanner').style.display='block'
     if(searchText === ''){
         document.getElementById('error').style.display='block'
         document.getElementById('error2').style.display='none'
@@ -10,7 +12,14 @@ const getPhones = () =>{
     const url =`https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
     .then(res => res.json())
-    .then(data =>showPhones(data.data))
+    .then(data => {
+      if(data.data==null){
+        document.getElementById('spanner').style.display='block'
+      }else{
+        document.getElementById('spanner').style.display='none'
+        showPhones(data.data)
+      }
+    })
     searchValue.value=''
 }
 }
@@ -19,6 +28,7 @@ const showPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container")
   if(phones.length === 0){
     document.getElementById('error2').style.display='block'
+    document.getElementById('spanner').style.display='block'
   }else{
     document.getElementById('error2').style.display='none'
     phoneContainer.textContent=''
