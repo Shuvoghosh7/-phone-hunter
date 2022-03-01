@@ -3,7 +3,8 @@ const getPhones = () =>{
     const searchText = searchValue.value
     if(searchText == ''){
         document.getElementById('error').style.display='block'
-    }else{
+    }
+    else{
     document.getElementById('error').style.display='none'
     const url =`https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
@@ -12,11 +13,11 @@ const getPhones = () =>{
     searchValue.value=''
 }
 }
-// Show data in webside
-const showPhones = (phones) => {
-    const phoneContainer = document.getElementById("phone-container")
+// Show phones data in webside
+const showPhones = (phones) => {  
+  const phoneContainer = document.getElementById("phone-container")
     phoneContainer.textContent=''
-    phones.forEach(phone => {
+    phones.slice(0,20).forEach(phone => {
         const div = document.createElement("div")
         div.classList.add('col')
         div.innerHTML = `
@@ -34,13 +35,14 @@ const showPhones = (phones) => {
     });
     
 } 
-// phone details
+// phone details 
 const phoneDetails = (id) =>{
     const url =`https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
     .then(res => res.json())
     .then(data => setPhoneDetails(data.data))
 }
+//set phone Details in UI
 const setPhoneDetails = (info) =>{
   setPhoneDetails.textContent=''
    const phoneDetails= document.getElementById("details-container")
@@ -55,6 +57,7 @@ const setPhoneDetails = (info) =>{
     <p><b>storage:</b> ${info.mainFeatures.storage}</p>  
     <p><b>sensors:</b> ${info.mainFeatures.sensors[0]},${info.mainFeatures.sensors[1]},${info.mainFeatures.sensors[2]},${info.mainFeatures.sensors[3]},${info.mainFeatures.sensors[4]},${info.mainFeatures.sensors[5]},${info.mainFeatures.sensors[6]}</p>  
     
+    <b class="text-success">Other Information</b>
     <p><b>Bluetooth:</b>${info.others.Bluetooth}</p> 
     
     <p><b>GPS:</b>${info.others.GPS}</p> 
