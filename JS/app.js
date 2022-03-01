@@ -1,8 +1,9 @@
 const getPhones = () =>{
     const searchValue = document.getElementById("search-box")
-    const searchText = searchValue.value
+    const searchText =  searchValue.value
     if(searchText === ''){
         document.getElementById('error').style.display='block'
+        document.getElementById('error2').style.display='none'
     }
     else{
     document.getElementById('error').style.display='none'
@@ -49,13 +50,12 @@ const phoneDetails = (id) =>{
 }
 //set phone Details in UI
 const setPhoneDetails = (info) =>{
-  setPhoneDetails.textContent=''
    const phoneDetails= document.getElementById("details-container")
    phoneDetails.innerHTML=`
    <img class="w-50" src="${info.image}" class="card-img-top" alt="...">
     <div class="card-body">
     <h5 class="card-title">${info.name}</h5>
-    <p>ReleaseDate: ${info.releaseDate}</p>
+    <p><b>ReleaseDate:</b> ${info.releaseDate == ''? 'Not released yet. Coming very soon' : info.releaseDate }</p>
     <p><b>Chipset:</b> ${info.mainFeatures.chipSet}</p>  
     <p><b>Display Size:</b> ${info.mainFeatures.displaySize}</p>  
     <p><b>Memory:</b> ${info.mainFeatures.memory}</p>  
