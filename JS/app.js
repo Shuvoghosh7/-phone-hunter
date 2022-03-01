@@ -47,9 +47,17 @@ const setPhoneDetails = (info) =>{
    phoneDetails.innerHTML=`
    <img src="${info.image}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-    <p>${info.releaseDate}</p>
-        
+    <h5 class="card-title">${info.name}</h5>
+    <p><b>releaseDate</b> if(${info.releaseDate}==null){
+      ${info.releaseDate}==false
+    }else{
+      ${info.releaseDate}== true
+    } </p>
+    <p><b>Chipset:</b> ${info.mainFeatures.chipSet}</p>  
+    <p><b>Display Size:</b> ${info.mainFeatures.displaySize}</p>  
+    <p><b>Memory:</b> ${info.mainFeatures.memory}</p>  
+    <p><b>storage:</b> ${info.mainFeatures.storage}</p>  
+    <p><b>sensors:</b> ${info.mainFeatures.sensors[0]},${info.mainFeatures.sensors[1]},${info.mainFeatures.sensors[2]},${info.mainFeatures.sensors[3]},${info.mainFeatures.sensors[4]},${info.mainFeatures.sensors[5]},${info.mainFeatures.sensors[6]}</p>  
       
     </div>
    `
