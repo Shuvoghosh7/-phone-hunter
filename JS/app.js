@@ -3,6 +3,7 @@ const getPhones = () =>{
     const searchText =  searchValue.value
     //get spanner by ID
     document.getElementById('spanner').style.display='block'
+    //check if search field empty 
     if(searchText === ''){
         document.getElementById('errorFor-empty').style.display='block'
         document.getElementById('errorFor-string').style.display='none'
@@ -65,7 +66,7 @@ const setPhoneDetails = (info) =>{
    <img src="${info.image}" class="card-img-top w-50" alt="...">
     <div class="card-body">
     <h5 class="card-title">${info.name}</h5>
-    <p><b>ReleaseDate:</b> ${info.releaseDate == ''? 'Not released yet. Coming very soon' : info.releaseDate }</p>
+    <p><b>ReleaseDate:</b> ${info.releaseDate == ''? '<span>Not released yet. Coming very soon<span>' : info.releaseDate }</p>
 
     <b class="text-success">Main Features</b>
     <p><b>Chipset:</b> ${info.mainFeatures.chipSet}</p>  
@@ -86,7 +87,7 @@ const setPhoneDetails = (info) =>{
     
     <p><b>USB:</b> ${info?.others?.USB}</p> 
    
-    <p><b>WLAN:</b> ${info.others?.WLAN}</p> 
+    <p><b>WLAN:</b> ${info?.others?.WLAN}</p> 
     </div>
    `
 }
